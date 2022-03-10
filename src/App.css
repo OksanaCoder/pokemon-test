@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+.grid-card {
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid-card::after {
+  content: "";
+  background: linear-gradient(linear, left top, right top, from(#3f0041), to(#9f3f2f));
+  background: linear-gradient(to right, #3f0041, #9f3f2f);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(0) perspective(100px);
+          transform: rotateY(0) perspective(100px);
+  -webkit-transition: .4s;
+  transition: .4s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid-img {
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  -o-object-position: center;
+     object-position: center;
+  -webkit-transform: rotateY(180deg) perspective(100px);
+          transform: rotateY(180deg) perspective(100px);
+  -webkit-transition: .4s;
+  transition: .4s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.grid-card-show::after {
+  -webkit-transform: rotateY(180deg) perspective(100px);
+          transform: rotateY(180deg) perspective(100px);
 }
 
-.App-link {
-  color: #61dafb;
+.grid-card-show .grid-img {
+  -webkit-transform: rotateY(0) perspective(100px);
+          transform: rotateY(0) perspective(100px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid-card-finished {
+  opacity: .5;
 }
+/*# sourceMappingURL=App.css.map */
